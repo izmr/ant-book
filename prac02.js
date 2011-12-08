@@ -4,8 +4,8 @@ var prac = function (input, L) {
   var min = function ( ants ) {
     var answer = 0;
     for ( var i = 0; i < L; i++ ) {
-      var distance = (L/2) > ants[i] ? ants[i] : L - ants[i];
-      if ( answer < distance ) answer = distance;
+      var d = Math.min(ants[i], L - ants[i]);
+      if ( answer < d ) answer = d;
     }
     return answer;
   }
