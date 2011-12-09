@@ -2,12 +2,12 @@ var prac = function (IN, k) {
   var result = false;
 
   var rec = function ( input, sum ) {
-    var n = input.length;
+    if ( result ) return;
     if ( sum == k ) result = true;
 
-    for ( var i = 0; i < n; i++ ) {
+    for ( var i = 0; i < input.length; i++ ) {
       var new_input = new Array();
-      for ( var j = 0; j < n; j++ ) {
+      for ( var j = 0; j < input.length; j++ ) {
         if ( j != i ) new_input.push(input[j]);
       }
       rec( new_input, sum + input[i] );

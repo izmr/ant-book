@@ -1,20 +1,16 @@
 var prac = function (input, L) {
-  var ant_number = input.length;
-
   var min = function ( ants ) {
     var answer = 0;
-    for ( var i = 0; i < L; i++ ) {
-      var d = Math.min(ants[i], L - ants[i]);
-      if ( answer < d ) answer = d;
+    for ( var i = 0; i < input.length; i++ ) {
+      answer = Math.max(answer, Math.min(ants[i], L - ants[i]));
     }
     return answer;
   }
 
   var max = function ( ants ) {
     var answer = 0;
-    for ( var i = 0; i < L; i++ ) {
-      if ( answer < ants[i] ) answer = ants[i];
-      if ( answer < L - ants[i] ) answer = L - ants[i];
+    for ( var i = 0; i < input.length; i++ ) {
+      answer = Math.max(answer, Math.max(ants[i], L - ants[i]));
     }
     return answer;
   }
