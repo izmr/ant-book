@@ -80,8 +80,12 @@ var app = module.exports = express.createServer();
 app.use(express.bodyParser());
 
 app.all('/', function(req, res, next) {
+  var map = input;
+  if ( req.body.map ) map = req.body.map;
+
   res.render('index', { title: 'Ant Book: Practice 05!',
-                        answer:prac05(input, n, m)});
+                        map: map,
+                        answer:prac05(map, n, m)});
 });
 
 app.configure(function(){
